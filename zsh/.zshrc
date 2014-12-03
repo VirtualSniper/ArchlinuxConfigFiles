@@ -45,7 +45,7 @@ ZSH_THEME="sniper"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git go autojump archlinux docker)
+plugins=(git go autojump archlinux docker tmux)
 
 # User configuration
 
@@ -81,4 +81,5 @@ source $ZSH/oh-my-zsh.sh
 
 alias grep="/usr/bin/grep $GREP_OPTIONS"
 unset GREP_OPTIONS
+alias tmux="TERM=screen-256color-bce tmux"
 

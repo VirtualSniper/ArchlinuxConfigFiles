@@ -49,6 +49,7 @@ Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'wincent/command-t'
 Plugin 'pangloss/vim-javascript'
 Plugin 'taglist.vim'
+Plugin 'Raimondi/delimitMate'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -106,3 +107,7 @@ let Tlist_Exit_OnlyWindow = 1   " 如果taglist是最后一个窗口，退出vim
 let Tlist_show_One_File = 1     " 只显示当前文件的taglist
 "let Tlist_GainFocus_On_ToggleOpen = 1 " 打开taglist时，光标保留在taglist窗口
 "}
+"
+
+let delimitMate_expand_cr = 1
+"let delimitMate_expand_space = 1
