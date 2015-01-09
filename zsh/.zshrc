@@ -45,7 +45,7 @@ ZSH_THEME="sniper"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git go autojump archlinux docker tmux)
+plugins=(git go autojump archlinux docker tmux systemd node)
 
 # User configuration
 
@@ -83,3 +83,11 @@ alias grep="/usr/bin/grep $GREP_OPTIONS"
 unset GREP_OPTIONS
 alias tmux="TERM=screen-256color-bce tmux"
 
+export GOPATH=$GOPATH:~/code/book/goc2p/
+export PATH=$PATH:$GOPATH/bin
+
+export NODE_PATH=$NODE_PATH:/usr/lib/node_modules
+
+source /usr/share/GNUstep/Makefiles/GNUstep.sh
+
+alias gccobjc="gcc -Wall -g -I/usr/include/GNUstep/ -fconstant-string-class=NSConstantString -lobjc -lgnustep-base"

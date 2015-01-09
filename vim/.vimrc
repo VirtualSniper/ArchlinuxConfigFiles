@@ -2,6 +2,9 @@ set nu " 显示行号
 syntax on " 语法高亮
 set ruler " 在右下角显示光标位置的状态行
 
+" filetype on "开户文件类型侦测
+" filetype plubin on "根据侦测到不同类型加载对应的插件
+
 colorscheme molokai "颜色方案
 set backspace=2 "backspace=indent,eol,start
 set nopaste " 取消粘贴缩进
@@ -19,14 +22,17 @@ setlocal noswapfile
 set tabstop=4       " 将Tab指定为4个空格字符，默认值是8
 set shiftwidth=4    " shift 移动时(<<, >>)使用4个空格，默认值是8
 set expandtab       " 插入模式下，Tab 会以一定数量的Space代替
-set softtabstop=4 
+set softtabstop=4   " 把连续数量的空格视为一个制表符
 set smarttab
 set smartindent     " 按Enter键移动到下一行时自动缩进
 set cindent         " 编写C语言代码时自动匹配C语法格式
 
+" set foldmethod=indent " 基于缩进折叠
+set foldmethod=syntax " 基于语法折叠
+set nofoldenable      " 启动 vim 时关闭折叠
 
 " vundle start
-set nocompatible              " be iMproved, required
+set nocompatible              " 关闭兼容模式be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
@@ -50,9 +56,12 @@ Plugin 'wincent/command-t'
 Plugin 'pangloss/vim-javascript'
 Plugin 'taglist.vim'
 Plugin 'Raimondi/delimitMate'
+Plugin 'nathanaelkane/vim-indent-guides'
+"Plugin 'VIlisp.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
+" 自适应不同语言的智能缩进
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
@@ -92,6 +101,7 @@ map <F8> :w <CR>: TlistToggle <CR>
  " set showtabline=2
  set noshowmode
  let g:Powerline_symbols = 'fancy'
+ let g:Powerline_colorscheme = 'solarized256' "设置状态栏主题风格
  "}
  
 " jvascript {
@@ -111,3 +121,9 @@ let Tlist_show_One_File = 1     " 只显示当前文件的taglist
 
 let delimitMate_expand_cr = 1
 "let delimitMate_expand_space = 1
+
+"vim-indent-guides {
+let g:indent_guides_enable_on_vim_startup=1 " 同vim 自动启动
+let g:indent_guides_start_level=2           " 从第二层显示缩进
+let g:indent_guides_guide_size=1            " 色块宽度
+"}
