@@ -58,7 +58,8 @@ Plugin 'taglist.vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'nathanaelkane/vim-indent-guides'
 "Plugin 'VIlisp.vim'
-
+Plugin 'moll/vim-node'
+Plugin 'mxw/vim-jsx'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 " 自适应不同语言的智能缩进
@@ -79,7 +80,7 @@ filetype plugin indent on    " required
 
 
 " YouCompleteMe start
-let g:ycm_global_ycm_extra_conf = '/home/linode/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '$HOME/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 ": YouCompleteMe end 
 
 "ycm 和ultisnips 快捷键冲突问题
@@ -126,4 +127,15 @@ let delimitMate_expand_cr = 1
 let g:indent_guides_enable_on_vim_startup=1 " 同vim 自动启动
 let g:indent_guides_start_level=2           " 从第二层显示缩进
 let g:indent_guides_guide_size=1            " 色块宽度
+"}
+
+"vim-jsx{
+let g:jsx_ext_required = 0
+"}
+"}
+
+"vim-go {
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
 "}
