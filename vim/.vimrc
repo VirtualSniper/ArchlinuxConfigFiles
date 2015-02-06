@@ -13,7 +13,7 @@ set hlsearch "高亮匹配
 set ignorecase "大小写忽略
 
 "更改不可字符的显示方式
-set listchars=tab:-,
+"set listchars=tab:-,
 
 set confirm
 setlocal noswapfile 
@@ -60,6 +60,7 @@ Plugin 'nathanaelkane/vim-indent-guides'
 "Plugin 'VIlisp.vim'
 Plugin 'moll/vim-node'
 Plugin 'mxw/vim-jsx'
+Plugin 'majutsushi/tagbar'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 " 自适应不同语言的智能缩进
@@ -93,7 +94,8 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 map <F7> <Esc>:WMToggle<CR>
-map <F8> :w <CR>: TlistToggle <CR>
+" map <F8> :w <CR>: TlistToggle <CR>
+map <F8> :TagbarToggle<CR>
 
 "powerline{
  "set guifont=PowerlineSymbols\ for\ Powerline
@@ -139,3 +141,7 @@ let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 "}
+
+
+" go 语言 保存时自动retab
+autocmd BufWritePost *.go set expandtab | retab
