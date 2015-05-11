@@ -29,6 +29,7 @@ set cindent         " 编写C语言代码时自动匹配C语法格式
 
 " set foldmethod=indent " 基于缩进折叠
 set foldmethod=syntax " 基于语法折叠
+autocmd FileType python setlocal foldmethod=indent
 set nofoldenable      " 启动 vim 时关闭折叠
 
 " vundle start
@@ -44,23 +45,35 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
 Plugin 'nginx.vim'
 Plugin 'fatih/vim-go'
+Plugin 'nsf/gocode', {'rtp': 'vim/'}
 Plugin 'SirVer/ultisnips'
-Plugin 'winmanager'
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'burnettk/vim-angular'
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-Plugin 'wincent/command-t'
+Plugin 'bling/vim-airline'
 Plugin 'pangloss/vim-javascript'
+Plugin 'marijnh/tern_for_vim'
+Plugin 'myhere/vim-nodejs-complete'
 Plugin 'taglist.vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-fugitive'
+Plugin 'terryma/vim-multiple-cursors'
 "Plugin 'VIlisp.vim'
-Plugin 'moll/vim-node'
-Plugin 'mxw/vim-jsx'
 Plugin 'majutsushi/tagbar'
+Plugin 'ctrlp.vim'
+Plugin 'unite.vim'
+Plugin 'rking/ag.vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'vim-scripts/a.vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 " 自适应不同语言的智能缩进
@@ -82,6 +95,15 @@ filetype plugin indent on    " required
 
 " YouCompleteMe start
 let g:ycm_global_ycm_extra_conf = '$HOME/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_register_as_syntastic_checker = 0
+let g:ycm_min_num_of_chars_for_completion = 2
+let g:ycm_auto_trigger=1
+let g:ycm_confirm_extra_conf=0
+let g:ycm_complete_in_comments = 1
+nnoremap <leader>gl :YcmCompleter GotoDeclaration<CR>
+nnoremap <leader>gf :YcmCompleter GotoDefinition<CR>
+nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nmap <F4> :YcmDiags<CR>
 ": YouCompleteMe end 
 
 "ycm 和ultisnips 快捷键冲突问题
@@ -93,25 +115,16 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
-map <F7> <Esc>:WMToggle<CR>
+map <F7> <Esc>:NERDTreeToggle<CR>
 " map <F8> :w <CR>: TlistToggle <CR>
 map <F8> :TagbarToggle<CR>
 
-"powerline{
- "set guifont=PowerlineSymbols\ for\ Powerline
- set t_Co=256
- set laststatus=2
- " set showtabline=2
- set noshowmode
- let g:Powerline_symbols = 'fancy'
- let g:Powerline_colorscheme = 'solarized256' "设置状态栏主题风格
- "}
- 
 " jvascript {
 "}
 
 " molokai color {
 let g:molokai_original = 1
+let g:rehash256 = 1
 " }
 
 "taglist {
@@ -145,3 +158,29 @@ let g:go_highlight_structs = 1
 
 " go 语言 保存时自动retab
 autocmd BufWritePost *.go set expandtab | retab
+
+"ag{
+"let g:ackprg = 'ag --vimgrep'
+nnoremap <leader>s :Ag "<C-R><C-W>" <CR>
+"}
+
+"ctrlp {
+"let g:ctrlp_working_path_mode = 0
+let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+      \ --ignore .git
+      \ --ignore .svn
+      \ --ignore .hg
+      \ --ignore .DS_Store
+      \ --ignore "**/*.pyc"
+      \ -g ""'
+"}
+
+"airline {
+let g:airline_section_b = '%{strftime("%H:%M")}'
+let g:airline#extensions#tabline#enabled = 1
+"}
+
+
+" 自动补全菜单
+set wildmenu
+set wildmode=full
