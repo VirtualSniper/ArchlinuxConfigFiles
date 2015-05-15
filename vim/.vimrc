@@ -52,6 +52,7 @@ Plugin 'nginx.vim'
 Plugin 'fatih/vim-go'
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
 Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'burnettk/vim-angular'
@@ -74,6 +75,7 @@ Plugin 'rking/ag.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'vim-scripts/a.vim'
+Plugin 'vim-scripts/SQLComplete.vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 " 自适应不同语言的智能缩进
@@ -184,3 +186,8 @@ let g:airline#extensions#tabline#enabled = 1
 " 自动补全菜单
 set wildmenu
 set wildmode=full
+
+inoremap jj <ESC>
+" 将刚刚输入的单词变为大写
+inoremap <C-u> <esc>gUiwea
+
