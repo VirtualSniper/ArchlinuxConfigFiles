@@ -84,10 +84,20 @@ unset GREP_OPTIONS
 alias tmux="TERM=screen-256color-bce tmux"
 
 export GOPATH=$GOPATH:~/code/book/goc2p/
+export GOPATH=$GOPATH:~/go/
 export PATH=$PATH:$GOPATH/bin
 
 export NODE_PATH=$NODE_PATH:/usr/lib/node_modules
 
-source /usr/share/GNUstep/Makefiles/GNUstep.sh
+#source /usr/share/GNUstep/Makefiles/GNUstep.sh
 
-alias gccobjc="gcc -Wall -g -I/usr/include/GNUstep/ -fconstant-string-class=NSConstantString -lobjc -lgnustep-base"
+#alias gccobjc="gcc -Wall -g -I/usr/include/GNUstep/ -fconstant-string-class=NSConstantString -lobjc -lgnustep-base"
+
+export EDITOR="vim"
+bindkey -e
+# vi style incremental search
+bindkey '^R' history-incremental-search-backward
+bindkey '^S' history-incremental-search-forward
+bindkey '^P' history-search-backward
+bindkey '^N' history-search-forward
+

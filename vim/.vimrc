@@ -59,10 +59,10 @@ Plugin 'burnettk/vim-angular'
 Plugin 'bling/vim-airline'
 Plugin 'pangloss/vim-javascript'
 Plugin 'marijnh/tern_for_vim'
-Plugin 'myhere/vim-nodejs-complete'
+Plugin 'moll/vim-node'
 Plugin 'taglist.vim'
 Plugin 'Raimondi/delimitMate'
-Plugin 'nathanaelkane/vim-indent-guides'
+"Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
@@ -141,9 +141,9 @@ let delimitMate_expand_cr = 1
 "let delimitMate_expand_space = 1
 
 "vim-indent-guides {
-let g:indent_guides_enable_on_vim_startup=1 " 同vim 自动启动
-let g:indent_guides_start_level=2           " 从第二层显示缩进
-let g:indent_guides_guide_size=1            " 色块宽度
+"let g:indent_guides_enable_on_vim_startup=1 " 同vim 自动启动
+"let g:indent_guides_start_level=2           " 从第二层显示缩进
+"let g:indent_guides_guide_size=1            " 色块宽度
 "}
 
 "vim-jsx{
@@ -155,11 +155,12 @@ let g:jsx_ext_required = 0
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
+let g:go_fmt_command="goimports"
 "}
 
 
 " go 语言 保存时自动retab
-autocmd BufWritePost *.go set expandtab | retab
+"autocmd BufWritePost *.go set expandtab | retab
 
 "ag{
 "let g:ackprg = 'ag --vimgrep'
