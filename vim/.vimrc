@@ -1,3 +1,4 @@
+let mapleader=","
 set nu " 显示行号
 syntax on " 语法高亮
 set ruler " 在右下角显示光标位置的状态行
@@ -60,6 +61,7 @@ Plugin 'bling/vim-airline'
 Plugin 'pangloss/vim-javascript'
 Plugin 'marijnh/tern_for_vim'
 Plugin 'moll/vim-node'
+Plugin 'ahayman/vim-nodejs-complete'
 Plugin 'taglist.vim'
 Plugin 'Raimondi/delimitMate'
 "Plugin 'nathanaelkane/vim-indent-guides'
@@ -76,6 +78,8 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'vim-scripts/a.vim'
 Plugin 'vim-scripts/SQLComplete.vim'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'tpope/vim-repeat'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 " 自适应不同语言的智能缩进
@@ -97,6 +101,7 @@ filetype plugin indent on    " required
 
 " YouCompleteMe start
 let g:ycm_global_ycm_extra_conf = '$HOME/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+"let g:ycm_global_ycm_extra_conf = '$HOME/.vim/.ycm_extra_conf.py'
 let g:ycm_register_as_syntastic_checker = 0
 let g:ycm_min_num_of_chars_for_completion = 2
 let g:ycm_auto_trigger=1
@@ -183,6 +188,40 @@ let g:airline_section_b = '%{strftime("%H:%M")}'
 let g:airline#extensions#tabline#enabled = 1
 "}
 
+" syntastic {
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_javascript_checkers = ['jsxhint']
+let g:syntastic_c_checkers= ['make', 'gcc']
+" }
+
+"vim-javascript {
+let javascript_enable_domhtmlcss = 1
+
+let g:javascript_conceal_function   = "ƒ"
+let g:javascript_conceal_null       = "ø"
+let g:javascript_conceal_this       = "@"
+let g:javascript_conceal_return     = "⇚"
+let g:javascript_conceal_undefined  = "¿"
+let g:javascript_conceal_NaN        = "ℕ"
+let g:javascript_conceal_prototype  = "¶"
+let g:javascript_conceal_static     = "•"
+let g:javascript_conceal_super      = "Ω"
+"}
+
+" tern_of_vim {
+"let g:tern_show_argument_hints='on_hold'
+"let g:tern_map_keys=1
+" }
+
+
 
 " 自动补全菜单
 set wildmenu
@@ -192,3 +231,7 @@ inoremap jj <ESC>
 " 将刚刚输入的单词变为大写
 inoremap <C-u> <esc>gUiwea
 
+set completeopt-=preview
+
+" javascript 为两个空格
+"autocmd FileType javascript setlocal et sta sw=4 sts=4
