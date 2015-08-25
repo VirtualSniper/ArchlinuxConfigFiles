@@ -68,6 +68,7 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-repeat'
 Plugin 'terryma/vim-multiple-cursors'
 "Plugin 'VIlisp.vim'
 Plugin 'majutsushi/tagbar'
@@ -75,13 +76,15 @@ Plugin 'ctrlp.vim'
 Plugin 'unite.vim'
 Plugin 'rking/ag.vim'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'davidhalter/jedi-vim'
+"Plugin 'davidhalter/jedi-vim'
 Plugin 'vim-scripts/a.vim'
 Plugin 'vim-scripts/SQLComplete.vim'
 Plugin 'easymotion/vim-easymotion'
-Plugin 'tpope/vim-repeat'
+Plugin 'rainbow_parentheses.vim'
+Plugin 'godlygeek/tabular'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
+
 " 自适应不同语言的智能缩进
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
@@ -107,6 +110,7 @@ let g:ycm_min_num_of_chars_for_completion = 2
 let g:ycm_auto_trigger=1
 let g:ycm_confirm_extra_conf=0
 let g:ycm_complete_in_comments = 1
+"let g:ycm_show_diagnostics_ui = 0
 nnoremap <leader>gl :YcmCompleter GotoDeclaration<CR>
 nnoremap <leader>gf :YcmCompleter GotoDefinition<CR>
 nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
@@ -199,7 +203,9 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 let g:syntastic_javascript_checkers = ['jsxhint']
-let g:syntastic_c_checkers= ['make', 'gcc']
+let g:syntastic_c_checkers= ['make']
+" for nginx code 
+let g:syntastic_c_include_dirs = ['src/core', 'src/event', 'src/os/unix', 'objs', 'src/http', 'src/http/modules', 'src/mail', 'src/stream']
 " }
 
 "vim-javascript {
@@ -235,3 +241,27 @@ set completeopt-=preview
 
 " javascript 为两个空格
 "autocmd FileType javascript setlocal et sta sw=4 sts=4
+
+" {
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+" }
+
+"{vim-easymotion
+nmap s <Plug>(easymotion-s2)
+nmap t <Plug>(easymotion-t2)
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
+
+map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>h <Plug>(easymotion-linebackward)
+
+let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion"
+let g:EasyMotion_smartcase = 1
+"{

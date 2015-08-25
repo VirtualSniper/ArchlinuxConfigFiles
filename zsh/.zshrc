@@ -79,8 +79,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias grep="/usr/bin/grep $GREP_OPTIONS"
-unset GREP_OPTIONS
 alias tmux="TERM=screen-256color-bce tmux"
 
 export GOPATH=$GOPATH:~/code/book/goc2p/
