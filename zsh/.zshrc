@@ -81,9 +81,10 @@ source $ZSH/oh-my-zsh.sh
 
 alias tmux="TERM=screen-256color-bce tmux"
 
-export GOPATH=$GOPATH:~/code/book/goc2p/
-export GOPATH=$GOPATH:~/go/
+# export GOPATH=$GOPATH:~/code/book/goc2p/
+export GOPATH=/home/linode/go/
 export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:~/.gem/ruby/2.2.0/bin
 
 export NODE_PATH=$NODE_PATH:/usr/lib/node_modules
 

@@ -76,7 +76,7 @@ Plugin 'ctrlp.vim'
 Plugin 'unite.vim'
 Plugin 'rking/ag.vim'
 Plugin 'airblade/vim-gitgutter'
-"Plugin 'davidhalter/jedi-vim'
+Plugin 'davidhalter/jedi-vim'
 Plugin 'vim-scripts/a.vim'
 Plugin 'vim-scripts/SQLComplete.vim'
 Plugin 'easymotion/vim-easymotion'
@@ -105,15 +105,15 @@ filetype plugin indent on    " required
 " YouCompleteMe start
 let g:ycm_global_ycm_extra_conf = '$HOME/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 "let g:ycm_global_ycm_extra_conf = '$HOME/.vim/.ycm_extra_conf.py'
-let g:ycm_register_as_syntastic_checker = 0
+let g:ycm_register_as_syntastic_checker = 1
 let g:ycm_min_num_of_chars_for_completion = 2
 let g:ycm_auto_trigger=1
 let g:ycm_confirm_extra_conf=0
 let g:ycm_complete_in_comments = 1
 "let g:ycm_show_diagnostics_ui = 0
-nnoremap <leader>gl :YcmCompleter GotoDeclaration<CR>
-nnoremap <leader>gf :YcmCompleter GotoDefinition<CR>
-nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>pg :YcmCompleter GoTo<CR>
 nmap <F4> :YcmDiags<CR>
 ": YouCompleteMe end 
 
@@ -204,8 +204,12 @@ let g:syntastic_check_on_wq = 0
 
 let g:syntastic_javascript_checkers = ['jsxhint']
 let g:syntastic_c_checkers= ['make']
+" let g:syntastic_cpp_checkers= ['clang_check']
 " for nginx code 
 let g:syntastic_c_include_dirs = ['src/core', 'src/event', 'src/os/unix', 'objs', 'src/http', 'src/http/modules', 'src/mail', 'src/stream']
+
+" for mlt 
+let g:syntastic_cpp_include_dirs = ['src/framework']
 " }
 
 "vim-javascript {
@@ -264,4 +268,8 @@ map <Leader>h <Plug>(easymotion-linebackward)
 
 let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion"
 let g:EasyMotion_smartcase = 1
-"{
+"} vim-easymotion end
+
+"{ a.vim
+
+"} a.vim
