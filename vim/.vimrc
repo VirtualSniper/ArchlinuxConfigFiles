@@ -273,3 +273,10 @@ let g:EasyMotion_smartcase = 1
 "{ a.vim
 
 "} a.vim
+
+"{ vim-snippets
+let g:snips_author='cfpeng'
+let g:snips_email='snipervirtual@gmail.com'
+"} vim-snippets 
+
+"autocmd bufnewfile *.sh 0r ~/github/ArchlinuxConfigFiles/vim/template/bash_default.sh
