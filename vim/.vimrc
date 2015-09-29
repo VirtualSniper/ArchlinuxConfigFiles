@@ -82,6 +82,8 @@ Plugin 'vim-scripts/SQLComplete.vim'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'rainbow_parentheses.vim'
 Plugin 'godlygeek/tabular'
+Plugin 'aklt/plantuml-syntax'
+Plugin 'junegunn/goyo.vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
@@ -277,6 +279,7 @@ let g:EasyMotion_smartcase = 1
 "{ vim-snippets
 let g:snips_author='cfpeng'
 let g:snips_email='snipervirtual@gmail.com'
+let g:snips_github='https://github.com/cfpeng'
 "} vim-snippets 
 
 "autocmd bufnewfile *.sh 0r ~/github/ArchlinuxConfigFiles/vim/template/bash_default.sh

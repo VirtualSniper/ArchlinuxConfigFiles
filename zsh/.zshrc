@@ -82,9 +82,12 @@ source $ZSH/oh-my-zsh.sh
 alias tmux="TERM=screen-256color-bce tmux"
 
 # export GOPATH=$GOPATH:~/code/book/goc2p/
-export GOPATH=/home/linode/go/
+export GOPATH=~/go/
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:~/.gem/ruby/2.2.0/bin
+export PATH=$PATH:~/github/data-science-at-the-command-line/tools
+export PATH=$PATH:~/bin
+export APTH=$PATH:~/github/curlicue
 
 export NODE_PATH=$NODE_PATH:/usr/lib/node_modules
 
@@ -99,4 +102,5 @@ bindkey '^R' history-incremental-search-backward
 bindkey '^S' history-incremental-search-forward
 bindkey '^P' history-search-backward
 bindkey '^N' history-search-forward
+
 
