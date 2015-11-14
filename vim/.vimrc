@@ -109,8 +109,9 @@ let g:ycm_global_ycm_extra_conf = '$HOME/.vim/bundle/YouCompleteMe/third_party/y
 "let g:ycm_global_ycm_extra_conf = '$HOME/.vim/.ycm_extra_conf.py'
 let g:ycm_register_as_syntastic_checker = 1
 let g:ycm_min_num_of_chars_for_completion = 2
+let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_auto_trigger=1
-let g:ycm_confirm_extra_conf=0
+"let g:ycm_confirm_extra_conf=0
 let g:ycm_complete_in_comments = 1
 "let g:ycm_show_diagnostics_ui = 0
 nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
