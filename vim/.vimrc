@@ -6,7 +6,10 @@ set ruler " 在右下角显示光标位置的状态行
 " filetype on "开户文件类型侦测
 " filetype plubin on "根据侦测到不同类型加载对应的插件
 
-colorscheme molokai "颜色方案
+"colorscheme molokai "颜色方案
+colorscheme kalisi
+set background=dark "light, dark
+
 set backspace=2 "backspace=indent,eol,start
 set nopaste " 取消粘贴缩进
 set incsearch "增量搜索：从输入第一个字符就开始搜索
@@ -58,10 +61,13 @@ Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'burnettk/vim-angular'
 Plugin 'bling/vim-airline'
+
+" for node begin{
 Plugin 'pangloss/vim-javascript'
-Plugin 'marijnh/tern_for_vim'
-Plugin 'moll/vim-node'
+Plugin 'marijnh/tern_for_vim'  " completion
 Plugin 'ahayman/vim-nodejs-complete'
+" } end for node
+
 Plugin 'taglist.vim'
 Plugin 'Raimondi/delimitMate'
 "Plugin 'nathanaelkane/vim-indent-guides'
@@ -81,9 +87,16 @@ Plugin 'vim-scripts/a.vim'
 Plugin 'vim-scripts/SQLComplete.vim'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'rainbow_parentheses.vim'
-Plugin 'godlygeek/tabular'
 Plugin 'aklt/plantuml-syntax'
 Plugin 'junegunn/goyo.vim'
+Plugin 'jeaye/color_coded'
+" colorscheme 
+Plugin 'freeo/vim-kalisi' 
+" utility start {
+Plugin 'godlygeek/tabular'
+Plugin 'mileszs/ack.vim'
+" } end utility
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
@@ -107,7 +120,7 @@ filetype plugin indent on    " required
 " YouCompleteMe start
 let g:ycm_global_ycm_extra_conf = '$HOME/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 "let g:ycm_global_ycm_extra_conf = '$HOME/.vim/.ycm_extra_conf.py'
-let g:ycm_register_as_syntastic_checker = 1
+let g:ycm_register_as_syntastic_checker = 0
 let g:ycm_min_num_of_chars_for_completion = 2
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_auto_trigger=1
@@ -193,6 +206,7 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
 "airline {
 let g:airline_section_b = '%{strftime("%H:%M")}'
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='kalisi'
 "}
 
 " syntastic {
@@ -247,7 +261,14 @@ inoremap <C-u> <esc>gUiwea
 set completeopt-=preview
 
 " javascript 为两个空格
-"autocmd FileType javascript setlocal et sta sw=4 sts=4
+" ts : tabstop
+" sts: softtabstop
+" sw : shiftwidth
+autocmd FileType javascript setlocal ts=2 sts=2 sw=2
+
+" for ruby {
+autocmd FileType ruby setlocal ts=2 sts=2 sw=2
+" } end 
 
 " {
 au VimEnter * RainbowParenthesesToggle
@@ -284,3 +305,6 @@ let g:snips_github='https://github.com/cfpeng'
 "} vim-snippets 
 
 "autocmd bufnewfile *.sh 0r ~/github/ArchlinuxConfigFiles/vim/template/bash_default.sh
+
+" insert new line in insert mode 
+imap ,nn <C-O>o
