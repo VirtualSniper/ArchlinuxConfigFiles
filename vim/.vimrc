@@ -231,7 +231,7 @@ let g:syntastic_c_include_dirs = ['src/core', 'src/event', 'src/os/unix', 'objs'
 " for mlt 
 let g:syntastic_cpp_include_dirs = ['src/framework']
 " fo go 
-"let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 "let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': '[go]' }
 " }
 
