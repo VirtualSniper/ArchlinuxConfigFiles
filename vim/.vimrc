@@ -308,3 +308,15 @@ let g:snips_github='https://github.com/cfpeng'
 
 " insert new line in insert mode 
 imap ,nn <C-O>o
+
+" Tabularize {
+if exists(":Tabularize")
+    nmap <Leader>a= :Tabularize /=<CR>
+    vmap <Leader>a= :Tabularize /=<CR>
+    nmap <Leader>a: :Tabularize /:\zs<CR>
+    vmap <Leader>a: :Tabularize /:\zs<CR>
+endif
+" Tabularize end }
+
+set cursorline
+set cursorcolumn
