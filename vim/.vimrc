@@ -180,6 +180,9 @@ let g:jsx_ext_required = 0
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
+let g:go_highlight_interfaces = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
 let g:go_fmt_command="goimports"
 "}
 
@@ -227,6 +230,9 @@ let g:syntastic_c_include_dirs = ['src/core', 'src/event', 'src/os/unix', 'objs'
 
 " for mlt 
 let g:syntastic_cpp_include_dirs = ['src/framework']
+" fo go 
+let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+"let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': '[go]' }
 " }
 
 "vim-javascript {
@@ -271,6 +277,26 @@ autocmd FileType ruby setlocal ts=2 sts=2 sw=2
 " } end 
 
 " {
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+let g:rbpt_max = 16
+let g:rbpt_loadcmd_toggle = 0
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
@@ -320,3 +346,5 @@ endif
 
 set cursorline
 set cursorcolumn
+" 注释的时候自动加个空格, 强迫症必配
+let g:NERDSpaceDelims=1
