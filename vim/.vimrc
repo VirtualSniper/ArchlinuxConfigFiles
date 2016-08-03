@@ -60,7 +60,8 @@ Plugin 'honza/vim-snippets'
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'burnettk/vim-angular'
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " for node begin{
 Plugin 'pangloss/vim-javascript'
@@ -207,9 +208,10 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
 "}
 
 "airline {
-let g:airline_section_b = '%{strftime("%H:%M")}'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='kalisi'
+"let g:airline_section_b = '%{strftime("%H:%M")}'
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline_theme='kalisi'
+set laststatus=2
 "}
 
 " syntastic {
