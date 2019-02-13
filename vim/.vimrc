@@ -90,12 +90,13 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'rainbow_parentheses.vim'
 Plugin 'aklt/plantuml-syntax'
 Plugin 'junegunn/goyo.vim'
-Plugin 'jeaye/color_coded'
+"Plugin 'jeaye/color_coded'
 " colorscheme 
 Plugin 'freeo/vim-kalisi' 
 " utility start {
 Plugin 'godlygeek/tabular'
 Plugin 'mileszs/ack.vim'
+Plugin 'sudo.vim'
 " } end utility
 
 " All of your Plugins must be added before the following line
@@ -119,7 +120,7 @@ filetype plugin indent on    " required
 
 
 " YouCompleteMe start
-let g:ycm_global_ycm_extra_conf = '$HOME/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '$HOME/.vim/bundle/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
 "let g:ycm_global_ycm_extra_conf = '$HOME/.vim/.ycm_extra_conf.py'
 let g:ycm_register_as_syntastic_checker = 0
 let g:ycm_min_num_of_chars_for_completion = 2

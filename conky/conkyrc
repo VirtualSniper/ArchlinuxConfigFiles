@@ -1,0 +1,90 @@
+conky.config = {
+	alignment = 'top_left',
+	background = false,
+	border_outer_margin = 5,
+	border_width = 1,
+	cpu_avg_samples = 2,
+	default_color = white,
+    out_to_x=true,
+
+	draw_borders = true,
+	draw_graph_borders = true,
+	draw_outline = false,
+	draw_shades = false,
+	double_buffer = true,
+	extra_newline = false,
+	font = 'DejaVu Sans Mono:size=10',
+	gap_x = -600,
+	gap_y = 400,
+
+	own_window = false,
+	own_window_type = 'normal',
+	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+	own_window_argb_visual = true,
+	own_window_argb_value = 100,
+
+	short_units = true,
+	stippled_borders = 0,
+	update_interval = 1,
+	uppercase = false,
+	use_xft = true,
+	use_spacer = 'none',
+	show_graph_scale = yes,
+	show_graph_range = false
+
+}
+
+conky.text = [[
+# ${execpi 1800 python ~/.config/conky/WUtemp.py}
+# ${execpi 1200 python ~/.config/conky/ScratchMessages.py}
+SYSTEM ${hr 2}
+${offset 15}System:${alignr}    ${exec hostnamectl | grep System | cut -c21-40}
+${offset 15}Arch: ${alignr}   ${exec hostnamectl | grep Architecture | cut -c20-30}
+${offset 15}Kernel: ${alignr}   ${exec hostnamectl | grep Kernel | cut -c20-32}
+${offset 15}Name: ${alignr}${exec whoami}
+${offset 15}Run Time: ${alignr}$color $uptime
+
+CPU ${hr 2}
+${offset 15}${color white}cpu 1: ${color green}${cpu cpu1}%${goto 100}${cpubar cpu1 6,70}  ${color white}cpu 7:  ${color green}${cpu cpu7}%${alignr}${cpubar cpu7 6,70}
+${offset 15}${color white}cpu 2: ${color green}${cpu cpu2}%${goto 100}${cpubar cpu2 6,70}  ${color white}cpu 8:  ${color green}${cpu cpu8}%${alignr}${cpubar cpu8 6,70}
+${offset 15}${color white}cpu 3: ${color green}${cpu cpu3}%${goto 100}${cpubar cpu3 6,70}  ${color white}cpu 9:  ${color green}${cpu cpu9}%${alignr}${cpubar cpu9 6,70}
+${offset 15}${color white}cpu 4: ${color green}${cpu cpu4}%${goto 100}${cpubar cpu4 6,70}  ${color white}cpu 10: ${color green}${cpu cpu10}%${alignr}${cpubar cpu10 6,70}
+${offset 15}${color white}cpu 5: ${color green}${cpu cpu5}%${goto 100}${cpubar cpu5 6,70}  ${color white}cpu 11: ${color green}${cpu cpu11}%${alignr}${cpubar cpu11 6,70}
+${offset 15}${color white}cpu 6: ${color green}${cpu cpu6}%${goto 100}${cpubar cpu6 6,70}  ${color white}cpu 12: ${color green}${cpu cpu12}%${alignr}${cpubar cpu12 6,70}
+${offset 15}${color0}CPU Usage:$color $cpu% ${color7}${cpubar}
+${offset 15}${color white}${cpugraph 0000ff 00ff00}
+
+${color}PROCESSES ${hr 2}
+${goto 0}${offset 15}${font DejaVu Sans Mono:size=10}${color EDE0FF}Name               ${alignr}PID   CPU%   MEM%
+${goto 0}${offset 15}${color FF7878}${top name 1} ${alignr}${top pid 1} ${top cpu 1} ${top mem 1}
+${goto 0}${offset 15}${color FF7878}${top name 2} ${alignr}${top pid 2} ${top cpu 2} ${top mem 2}
+${goto 0}${offset 15}${color FF7878}${top name 3} ${alignr}${top pid 3} ${top cpu 3} ${top mem 3}
+${goto 0}${offset 15}${color FF7878}${top name 4} ${alignr}${top pid 4} ${top cpu 4} ${top mem 4}
+${goto 0}${offset 15}${color FF7878}${top name 5} ${alignr}${top pid 5} ${top cpu 5} ${top mem 5}
+${goto 0}${offset 15}${color FF7878}${top name 6} ${alignr}${top pid 6} ${top cpu 6} ${top mem 6}
+
+MEM ${hr 2}
+${offset 15}${color white}RAM : $mem/$memmax ${color green} $memperc% ${membar 4}
+${offset 15}${color white}Swap : $swap/$swapmax ${color green} $swapperc% ${swapbar 4}
+${goto 0}${offset 15}${font DejaVu Sans Mono:size=10}${color EDE0FF}Name               ${alignr}PID   CPU%   MEM%
+${goto 0}${offset 15}${top_mem name 1} ${alignr}${top_mem pid 1} ${top_mem cpu 1} ${top_mem mem 1}
+${goto 0}${offset 15}${top_mem name 2} ${alignr}${top_mem pid 2} ${top_mem cpu 2} ${top_mem mem 2}
+${goto 0}${offset 15}${top_mem name 3} ${alignr}${top_mem pid 3} ${top_mem cpu 3} ${top_mem mem 3}
+${goto 0}${offset 15}${top_mem name 4} ${alignr}${top_mem pid 4} ${top_mem cpu 4} ${top_mem mem 4}
+${goto 0}${offset 15}${top_mem name 5} ${alignr}${top_mem pid 5} ${top_mem cpu 5} ${top_mem mem 5}
+
+${color}File systems:${hr 2}
+${offset 15}/      ${fs_used /}/${fs_size /} ${offset 15}${color green} ${fs_bar 6 /}
+${offset 15}${color}/home  ${fs_used /home}/${fs_size /home} ${offset 15}${color green} ${fs_bar 6 /home}
+#PERFORMANCE ${hr 2}${font DejaVu Sans Mono:size=11}
+#${offset 15}${font DejaVu Sans Mono:size=11}${color FFFDE2}Procs:$color $processes  ${color FFFDE2}Run:$color $running_processes Temp: ${acpitemp}°C
+${color0}Reads: $color$diskio_read/s${alignr}${color0}Writes: $color$diskio_write/s
+${color8}${diskiograph_read 20,100 33FF00 FF3333 scale -t}$color${alignr}${color8}${diskiograph_write 20,100 33FF00 FF3333 scale -t}$color
+
+NETWORK ${hr 2}${font DejaVu Sans Mono:size=11}
+#${offset 15}${color}Ext IP Addr ${color red}${alignr}${exec curl ifconfig.me}
+${offset 15}${color}IPv4 Addr ${alignr}${addr enp1s0}
+${offset 15}${font DejaVu Sans Mono:size=10}${color green}↓:$color${downspeedf enp1s0}k/s (${totaldown enp1s0}) ${alignr}${color red}↑: $color${alignr}${upspeedf enp1s0}k/s (${totalup enp1s0})
+${offset 15}${downspeedgraph enp1s0 50,150 ff0000 0000ff}  ${upspeedgraph enp1s0 50, 150 99c8e8 618094}
+
+]]
