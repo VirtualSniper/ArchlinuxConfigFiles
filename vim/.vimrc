@@ -36,87 +36,65 @@ set foldmethod=syntax " 基于语法折叠
 autocmd FileType python setlocal foldmethod=indent
 set nofoldenable      " 启动 vim 时关闭折叠
 
-" vundle start
-set nocompatible              " 关闭兼容模式be iMproved, required
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+call plug#begin('~/.local/share/nvim/plugged')
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'scrooloose/syntastic'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/nerdtree'
-Plugin 'nginx.vim'
-Plugin 'fatih/vim-go'
-Plugin 'nsf/gocode', {'rtp': 'vim/'}
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'ekalinin/Dockerfile.vim'
-Plugin 'mattn/emmet-vim'
-Plugin 'burnettk/vim-angular'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'gmarik/Vundle.vim'
+Plug 'Valloric/YouCompleteMe'
+Plug 'scrooloose/syntastic'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'nginx.vim'
+Plug 'fatih/vim-go'
+Plug 'nsf/gocode', {'rtp': 'vim/'}
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'mattn/emmet-vim'
+Plug 'burnettk/vim-angular'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " for node begin{
-Plugin 'pangloss/vim-javascript'
-Plugin 'marijnh/tern_for_vim'  " completion
-Plugin 'ahayman/vim-nodejs-complete'
+Plug 'pangloss/vim-javascript'
+Plug 'marijnh/tern_for_vim'  " completion
+Plug 'ahayman/vim-nodejs-complete'
 " } end for node
 
-Plugin 'taglist.vim'
-Plugin 'Raimondi/delimitMate'
-"Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-repeat'
-Plugin 'terryma/vim-multiple-cursors'
-"Plugin 'VIlisp.vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'ctrlp.vim'
-Plugin 'unite.vim'
-Plugin 'rking/ag.vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'vim-scripts/a.vim'
-Plugin 'vim-scripts/SQLComplete.vim'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'rainbow_parentheses.vim'
-Plugin 'aklt/plantuml-syntax'
-Plugin 'junegunn/goyo.vim'
-"Plugin 'jeaye/color_coded'
+Plug 'taglist.vim'
+Plug 'Raimondi/delimitMate'
+"Plug 'nathanaelkane/vim-indent-guides'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'terryma/vim-multiple-cursors'
+"Plug 'VIlisp.vim'
+Plug 'majutsushi/tagbar'
+Plug 'ctrlp.vim'
+Plug 'unite.vim'
+Plug 'rking/ag.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'davidhalter/jedi-vim'
+Plug 'vim-scripts/a.vim'
+Plug 'vim-scripts/SQLComplete.vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'rainbow_parentheses.vim'
+Plug 'aklt/plantuml-syntax'
+Plug 'junegunn/goyo.vim'
+"Plug 'jeaye/color_coded'
 " colorscheme 
-Plugin 'freeo/vim-kalisi' 
+Plug 'freeo/vim-kalisi' 
 " utility start {
-Plugin 'godlygeek/tabular'
-Plugin 'mileszs/ack.vim'
-Plugin 'sudo.vim'
+Plug 'godlygeek/tabular'
+Plug 'mileszs/ack.vim'
+Plug 'sudo.vim'
 " } end utility
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
+call plug#end()
 
 " 自适应不同语言的智能缩进
 filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-" vundle end
-
 
 
 " YouCompleteMe start
