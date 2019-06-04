@@ -7,7 +7,7 @@ set ruler " 在右下角显示光标位置的状态行
 " filetype plubin on "根据侦测到不同类型加载对应的插件
 
 "colorscheme molokai "颜色方案
-colorscheme kalisi
+"colorscheme kalisi
 set background=dark "light, dark
 
 set backspace=2 "backspace=indent,eol,start
@@ -36,66 +36,62 @@ set foldmethod=syntax " 基于语法折叠
 autocmd FileType python setlocal foldmethod=indent
 set nofoldenable      " 启动 vim 时关闭折叠
 
-call plug#begin('~/.local/share/nvim/plugged')
+set nocompatible              " 关闭兼容模式be iMproved, required
+filetype off                  " required
 
-" let Vundle manage Vundle, required
-Plug 'gmarik/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 Plug 'Valloric/YouCompleteMe'
+Plug 'rking/ag.vim'
 Plug 'scrooloose/syntastic'
-Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
-Plug 'nginx.vim'
-Plug 'fatih/vim-go'
-Plug 'nsf/gocode', {'rtp': 'vim/'}
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'ekalinin/Dockerfile.vim'
-Plug 'mattn/emmet-vim'
-Plug 'burnettk/vim-angular'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'easymotion/vim-easymotion'
+call plug#end()
+"Plugin 'scrooloose/nerdcommenter'
+"Plugin 'nginx.vim'
+"Plugin 'fatih/vim-go'
+"Plugin 'nsf/gocode', {'rtp': 'vim/'}
+"Plugin 'SirVer/ultisnips'
+"Plugin 'honza/vim-snippets'
+"Plugin 'ekalinin/Dockerfile.vim'
+"Plugin 'mattn/emmet-vim'
+"Plugin 'burnettk/vim-angular'
+"Plugin 'vim-airline/vim-airline'
+"Plugin 'vim-airline/vim-airline-themes'
 
 " for node begin{
-Plug 'pangloss/vim-javascript'
-Plug 'marijnh/tern_for_vim'  " completion
-Plug 'ahayman/vim-nodejs-complete'
+"Plugin 'pangloss/vim-javascript'
+"Plugin 'marijnh/tern_for_vim'  " completion
+"Plugin 'ahayman/vim-nodejs-complete'
 " } end for node
 
-Plug 'taglist.vim'
-Plug 'Raimondi/delimitMate'
-"Plug 'nathanaelkane/vim-indent-guides'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-repeat'
-Plug 'terryma/vim-multiple-cursors'
-"Plug 'VIlisp.vim'
-Plug 'majutsushi/tagbar'
-Plug 'ctrlp.vim'
-Plug 'unite.vim'
-Plug 'rking/ag.vim'
-Plug 'airblade/vim-gitgutter'
-Plug 'davidhalter/jedi-vim'
-Plug 'vim-scripts/a.vim'
-Plug 'vim-scripts/SQLComplete.vim'
-Plug 'easymotion/vim-easymotion'
-Plug 'rainbow_parentheses.vim'
-Plug 'aklt/plantuml-syntax'
-Plug 'junegunn/goyo.vim'
-"Plug 'jeaye/color_coded'
+"Plugin 'taglist.vim'
+"Plugin 'Raimondi/delimitMate'
+"Plugin 'nathanaelkane/vim-indent-guides'
+"Plugin 'tpope/vim-unimpaired'
+"Plugin 'tpope/vim-surround'
+"Plugin 'tpope/vim-fugitive'
+"Plugin 'tpope/vim-repeat'
+"Plugin 'terryma/vim-multiple-cursors'
+"Plugin 'VIlisp.vim'
+"Plugin 'majutsushi/tagbar'
+"Plugin 'ctrlp.vim'
+"Plugin 'unite.vim'
+"Plugin 'airblade/vim-gitgutter'
+"Plugin 'davidhalter/jedi-vim'
+"Plugin 'vim-scripts/a.vim'
+"Plugin 'vim-scripts/SQLComplete.vim'
+"Plugin 'rainbow_parentheses.vim'
+"Plugin 'aklt/plantuml-syntax'
+"Plugin 'junegunn/goyo.vim'
+"Plugin 'jeaye/color_coded'
 " colorscheme 
-Plug 'freeo/vim-kalisi' 
+"Plugin 'freeo/vim-kalisi' 
 " utility start {
-Plug 'godlygeek/tabular'
-Plug 'mileszs/ack.vim'
-Plug 'sudo.vim'
+"Plugin 'godlygeek/tabular'
+"Plugin 'mileszs/ack.vim'
 " } end utility
 
-call plug#end()
-
-" 自适应不同语言的智能缩进
-filetype plugin indent on    " required
-
+"filetype plugin indent on    " required
 
 " YouCompleteMe start
 let g:ycm_global_ycm_extra_conf = '$HOME/.vim/bundle/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
@@ -172,7 +168,7 @@ let g:go_fmt_command="goimports"
 
 "ag{
 "let g:ackprg = 'ag --vimgrep'
-nnoremap <leader>s :Ag "<C-R><C-W>" <CR>
+"nnoremap <leader>s :Ag "<C-R><C-W>" <CR>
 "}
 
 "ctrlp {
@@ -198,36 +194,18 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_javascript_checkers = ['jsxhint']
-let g:syntastic_c_checkers= ['make']
-" let g:syntastic_cpp_checkers= ['clang_check']
-" for nginx code 
-let g:syntastic_c_include_dirs = ['src/core', 'src/event', 'src/os/unix', 'objs', 'src/http', 'src/http/modules', 'src/mail', 'src/stream']
-
-" for mlt 
-let g:syntastic_cpp_include_dirs = ['src/framework']
-" fo go 
-let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-"let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': '[go]' }
-" }
-
 "vim-javascript {
-let javascript_enable_domhtmlcss = 1
+"let javascript_enable_domhtmlcss = 1
 
-let g:javascript_conceal_function   = "ƒ"
-let g:javascript_conceal_null       = "ø"
-let g:javascript_conceal_this       = "@"
-let g:javascript_conceal_return     = "⇚"
-let g:javascript_conceal_undefined  = "¿"
-let g:javascript_conceal_NaN        = "ℕ"
-let g:javascript_conceal_prototype  = "¶"
-let g:javascript_conceal_static     = "•"
-let g:javascript_conceal_super      = "Ω"
+"let g:javascript_conceal_function   = "ƒ"
+"let g:javascript_conceal_null       = "ø"
+"let g:javascript_conceal_this       = "@"
+"let g:javascript_conceal_return     = "⇚"
+"let g:javascript_conceal_undefined  = "¿"
+"let g:javascript_conceal_NaN        = "ℕ"
+"let g:javascript_conceal_prototype  = "¶"
+"let g:javascript_conceal_static     = "•"
+"let g:javascript_conceal_super      = "Ω"
 "}
 
 " tern_of_vim {
@@ -254,35 +232,8 @@ set completeopt-=preview
 autocmd FileType javascript setlocal ts=2 sts=2 sw=2
 
 " for ruby {
-autocmd FileType ruby setlocal ts=2 sts=2 sw=2
+"autocmd FileType ruby setlocal ts=2 sts=2 sw=2
 " } end 
-
-" {
-let g:rbpt_colorpairs = [
-    \ ['brown',       'RoyalBlue3'],
-    \ ['Darkblue',    'SeaGreen3'],
-    \ ['darkgray',    'DarkOrchid3'],
-    \ ['darkgreen',   'firebrick3'],
-    \ ['darkcyan',    'RoyalBlue3'],
-    \ ['darkred',     'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['brown',       'firebrick3'],
-    \ ['gray',        'RoyalBlue3'],
-    \ ['black',       'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['Darkblue',    'firebrick3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkcyan',    'SeaGreen3'],
-    \ ['darkred',     'DarkOrchid3'],
-    \ ['red',         'firebrick3'],
-    \ ]
-let g:rbpt_max = 16
-let g:rbpt_loadcmd_toggle = 0
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
-" }
 
 "{vim-easymotion
 nmap s <Plug>(easymotion-s2)
