@@ -36,7 +36,6 @@ set foldmethod=syntax " 基于语法折叠
 autocmd FileType python setlocal foldmethod=indent
 set nofoldenable      " 启动 vim 时关闭折叠
 
-" vundle start
 set nocompatible              " 关闭兼容模式be iMproved, required
 filetype off                  " required
 
@@ -95,7 +94,7 @@ call plug#end()
 "filetype plugin indent on    " required
 
 " YouCompleteMe start
-let g:ycm_global_ycm_extra_conf = '$HOME/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '$HOME/.vim/bundle/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
 "let g:ycm_global_ycm_extra_conf = '$HOME/.vim/.ycm_extra_conf.py'
 let g:ycm_register_as_syntastic_checker = 0
 let g:ycm_min_num_of_chars_for_completion = 2
