@@ -1,3 +1,20 @@
+set nocompatible "设置 VIM 不需要和 VI 兼容
+
+set nobackup " 不需要备份文件
+set undodir=~/.vim/undodir " 设置撤销文件目录
+if !isdirectory(&undodir)
+    call mkdir(&undodir, 'p', 0700)
+endif
+
+" 鼠标设置
+if has('mouse') 
+    if has('gui_running') || (&term =~ 'xterm' && !has('mac')) 
+        set mouse=a 
+    else 
+        set mouse=nvi 
+    endif
+endif
+
 " 修改leader键
 let mapleader = ','
 let g:mapleader = ','
@@ -124,4 +141,8 @@ let g:go_debug_windows = {
       \ 'stack':      'rightbelow 10new',
 \ }
 
+" 查看文件列表
+nmap <C-p> :Files<CR> 
+" 查看当前 Buffer，两次 Ctrl + e 快速切换上次打开的 Buffer
+nmap <C-e> :Buffers<CR> let g:fzf_action = { 'ctrl-e': 'edit' }
 
