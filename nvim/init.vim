@@ -15,6 +15,9 @@ if has('mouse')
     endif
 endif
 
+set number " 显示行号
+
+
 " 修改leader键
 let mapleader = ','
 let g:mapleader = ','
@@ -32,9 +35,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'ojroques/nvim-lspfuzzy'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'neovim/nvim-lspconfig'
 "Plug 'glepnir/lspsaga.nvim'
-Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
@@ -56,6 +57,12 @@ Plug 'hrsh7th/vim-vsnip'
 " For snippy users.
 " Plug 'dcampos/nvim-snippy'
 " Plug 'dcampos/cmp-snippy'
+
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
 call plug#end()
 
 lua << EOF
@@ -122,7 +129,7 @@ require('lspfuzzy').setup {}
 
 EOF
 
-
+" lsp config
 nnoremap <silent><leader>ls <cmd>lua vim.lsp.buf.document_symbol()<CR>
 nnoremap <silent><leader>ll <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent><leader>lg <cmd>lua vim.lsp.buf.definition()<CR>
@@ -132,6 +139,12 @@ nnoremap <silent><leader>l, <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 
 nnoremap <leader>fo :Files<CR>
 nnoremap <leader>fif :Rg<CR> 
+
+" telescop config
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 "nnoremap <silent> gh <cmd>lua require'lspsaga.provider'.lsp_finder()<CR>
 "nnoremap <silent> gh :Lspsaga lsp_finder<CR>
